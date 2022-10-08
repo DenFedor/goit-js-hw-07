@@ -27,14 +27,15 @@ function modalImageZoom(event) {
   if (event.target.nodeName !== `IMG`) {
     return;
   }
-  let instance = basicLightbox.create(`
- <img
+  let instance = basicLightbox
+    .create(
+      ` <img
       class="gallery__image"
       src="${event.target.getAttribute(`data-source`)}"
       alt="${event.target.alt}"
-    />
-`);
-  instance.show();
+    />`
+    )
+    .show();
   if (instance.visible()) {
     gallery.addEventListener(`keyup`, (event) => {
       if (event.key === "Escape") {
